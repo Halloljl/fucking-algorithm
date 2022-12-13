@@ -1,10 +1,15 @@
+import java.util.Arrays;
+
 /**
  * @author hallo
  * @datetime 2022-12-13 16:30
  * @description
  */
 public class SpiralMatrixII {
-    public int[][] generateMatrix(int n) {
+    public static void main(String[] args) {
+        System.out.println(Arrays.toString(generateMatrix(4)));
+    }
+    public static int[][] generateMatrix(int n) {
         int startX = 0,startY = 0,offset = 0;
         int i = 0,j,count = 1;
         int[][] nums = new int[n][n];
