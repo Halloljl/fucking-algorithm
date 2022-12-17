@@ -4,6 +4,13 @@
  * @description
  */
 public class PartitionList {
+    public static void main(String[] args) {
+        int[] arr  = {1,4,3,2,5,2};
+        ListNode node = new ListNode(arr);
+        PartitionList list = new PartitionList();
+        list.partition(node,3);
+
+    }
     public ListNode partition(ListNode head, int x) {
         // 定义两个新链表
         ListNode dummy1 = new ListNode(-1);
@@ -17,6 +24,8 @@ public class PartitionList {
                 p2.next = p;
                 p2 = p2.next;
             }
+            // TODO
+            // p = p.next;
             // 断开原链表中的每个节点的 next 指针
             ListNode temp = p.next;
             p.next = null;
@@ -24,6 +33,7 @@ public class PartitionList {
         }
         // 拼接链表
         p1.next = dummy2.next;
+        System.out.println(dummy1.next);
         return dummy1.next;
     }
 
