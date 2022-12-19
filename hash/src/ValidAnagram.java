@@ -1,7 +1,8 @@
 /**
  * @author hallo
  * @datetime 2022-12-19 19:45
- * @description
+ * @description 242. 有效的字母异位词
+ * https://leetcode.cn/problems/valid-anagram/
  */
 public class ValidAnagram {
     public boolean isAnagram(String s, String t) {
