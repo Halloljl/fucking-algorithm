@@ -12,8 +12,9 @@ public class SelectionSort {
         for (int i = 0; i < nums.length; i++) {
             // 首先默认i的位置就只最小元素 此变量用来记录下最小值的下标
             int minValue = i;
-            // 进入循环 在nums[i,length]中找到最小的元素
-            for (int j = i; j < nums.length; j++) {
+            // 进入循环 在nums[i,length]中找到最小的元素 
+            // 此处 j = i + 1 而不是i 避免自己和自己比较 省去进入一次内循环。
+            for (int j = i + 1; j < nums.length; j++) {
                 if (nums[j] < nums[minValue]) {
                     // 变更最小元素的下标
                     minValue = j;
