@@ -7,52 +7,34 @@ import java.util.List;
 
 /**
  * @author hallo
- * @datetime 2023-01-01 12:31
- * @description 倒序打印一个链表
+ * @datetime 2023-01-08 10:45
+ * @description 剑指 Offer 06. 从尾到头打印链表
+ * <a href="https://leetcode.cn/problems/cong-wei-dao-tou-da-yin-lian-biao-lcof/">...</a>
  */
 public class PrintLinkedListInReverseOrder {
-
-    @Test
-    public void test01() {
-        ListNode root = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(5))));
-        traverse(root);
-        System.out.println(list);
+    public int[] reversePrint(ListNode head) {
+        // 遍历数组
+        traverse(head);
+        return res.stream().mapToInt(Integer::intValue).toArray();
     }
-    List<Integer> list = new ArrayList<>();
-    public void traverse(ListNode root) {
-        if (root == null) {
-            return;
+
+    // 先声明一个集合 用来盛放结果集。
+    List<Integer> res = new ArrayList();
+    // 不需要返回值 直接放List集合里面了
+    public void traverse(ListNode head) {
+        if (head == null) {
+            return ;
         }
-        traverse(root.next);
-        list.add(root.val);
+        // 开始递归遍历
+        traverse(head.next);
+        res.add(head.val);
     }
 }
+
 class ListNode {
     int val;
     ListNode next;
-    ListNode() {}
-    ListNode(int val) { this.val = val; }
-    ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-
-    ListNode(int[] arr) {
-        this.val = arr[0];
-        ListNode cur = this;
-        for (int i = 1; i < arr.length; i++) {
-            cur.next = new ListNode(arr[i]);
-            cur = cur.next;
-        }
-    }
-
-    @Override
-    public String toString() {
-        StringBuilder res = new StringBuilder();
-        ListNode dummy = new ListNode(-1);
-        ListNode p = this;
-        while (p != null) {
-            res.append(p.val).append(" -> ");
-            p = p.next;
-        }
-        res.append("NULL");
-        return res.toString();
+    public ListNode(int x) {
+        this.val = x;
     }
 }
